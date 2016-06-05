@@ -69,4 +69,31 @@ class utils
         $estaActivo = url()->current() == $url ? "class=\"active\"" : "";
         return "<li $estaActivo><a href=\"$url\">$nome</a></li>";
     }
+
+    static public function data_str($data = null, $formato = 'jmY')
+    {
+        if (is_null($data)) {
+            $data = date('Y-m-d H:i:s');
+        }
+
+        $time = strtotime($data);
+        if ($time === false) {
+            return false;
+        }
+
+        $formato = explode('m', $formato);
+
+        $strs = [];
+        foreach ($formato as $f) {
+            $strs[] = date($f, $time);
+        }
+
+        if (count($strs)) {
+            $glue = self::nome_mes(date('m', $time));
+        } else {
+            $glue = '';
+        }
+
+        return implode($glue, $strs);
+    }
 }

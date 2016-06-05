@@ -49,30 +49,14 @@
                             <blockquote>
                                 <p class="lead">
                                     {{ $post->titulo }}
-                                    <a type="button" class="btn btn-default qypgj-btn-editar">Visualizar</a>
+                                    <a href="{{ route('post.show', $post->id) }}" type="button" class="btn btn-default qypgj-btn-editar">Visualizar</a>
                                 </p>
-                                <p>{{ $post->texto}}</p>
-                                <footer>criado em {{ $post->created_at }}</footer>
+                                <p>{{ $post->get_texto('255', '....') }}</p>
+                                <footer>criado em {{ $post->get_data_criado() }}</footer>
                             </blockquote>
-                        </div>
-                        <div class="col-md-2">
                         </div>
                     </div>
                 @endforeach
-                <div class="row">
-                    <div class="col-md-12">
-                        <blockquote>
-                            <p class="lead">
-                                TITLE
-                                <a type="button" class="btn btn-default qypgj-btn-editar">Visualizar</a>
-                            </p>
-                            <p>A única área que eu acho, que vai exigir muita atenção nossa, e aí eu já aventei a hipótese de até criar um ministério. É na área de... Na área... Eu diria assim, como uma espécie de analogia com o que acontece na área agrícola. Primeiro eu queria cumprim...</p>
-                            <footer>criado em 2016, 05 de Junho</footer>
-                        </blockquote>
-                    </div>
-                    <div class="col-md-2">
-                    </div>
-                </div>
             </div>
         </div>
     </div>

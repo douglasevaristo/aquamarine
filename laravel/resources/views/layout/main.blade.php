@@ -14,7 +14,7 @@
         <footer class="footer qypgj-footer">
             <div class="footer-container">
                 <div class="footer-content">
-                    {{date('Y, d')}} de {{utils::nome_mes(date('m'))}}
+                    {{ utils::data_str(null, 'Y, d \d\e m') }}
                     <div class="title">#7FFFD4</div>
                 </div>
             </div>
