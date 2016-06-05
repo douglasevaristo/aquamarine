@@ -11,7 +11,7 @@
             @yield('body')
         </div>
 
-        <footer class="footer">
+        <footer class="footer qypgj-footer">
             <div class="footer-container">
                 <div class="footer-content">
                     {{date('Y, d')}} de {{utils::nome_mes(date('m'))}}

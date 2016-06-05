@@ -22,3 +22,5 @@ Route::get('/sobre', ['as' => 'sobre', function () {
 Route::get('/contato', ['as' => 'contato', function () {
     return view('contato');
 }]);
+
+Route::resource('post', 'PostCtrl');

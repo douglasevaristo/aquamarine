@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 {!! utils::criar_navbar_item('Home', 'home') !!}
-                <li ><a href="#">Postagens</a></li>
+                {!! utils::criar_navbar_item('Postagens', 'post.index') !!}
                 {!! utils::criar_navbar_item('Sobre', 'sobre') !!}
                 {!! utils::criar_navbar_item('Contato', 'contato') !!}
             </ul>
