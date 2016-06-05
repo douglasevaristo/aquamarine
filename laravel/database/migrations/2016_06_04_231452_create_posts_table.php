@@ -16,7 +16,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('titulo', '255');
             $table->text('texto');
-            $table->text('senha', '40');
+            $table->string('senha', '40');
             $table->timestamps();
         });
     }
