@@ -1,3 +1,61 @@
-body {
-    background-color: aquamarine;
+html {
+  position: relative;
+  min-height: 100%;
 }
+
+body {
+    color: #222133;
+}
+
+.body {
+    margin-top: 60px;
+    margin-bottom: 150px;
+
+    max-width: 100%;
+
+    /*overflow-y: hidden;
+    overflow-x: scroll;*/
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    position: relative;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-height: 150px;
+    
+    background-color: #7FFFD4;
+    padding: 30px 0;
+}
+
+.footer-container {
+    text-align: center;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-content {
+    text-align: center;
+    display: inline-block;
+}
+
+
+
+/**
+
+ **paleta de cores**
+
+    DEFAULT fundo: aquamarine;
+    PRIMARY header/label/strong/DESTAQUE : #AD9EBF;
+    constrast com o PRIMARY : #9A2E46;
+    color-font/ bordas/: #222133;
+    #COR-TERCEARIA: #2E69A5;
+    fundo pra well: #7EA6AA;
+
+*/

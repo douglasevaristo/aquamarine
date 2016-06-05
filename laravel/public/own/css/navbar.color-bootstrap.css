@@ -1,0 +1,100 @@
+.navbar-default {
+  background-color: #7ea6aa;
+  border-color: #4d9d82;
+}
+.navbar-default .navbar-brand {
+  color: #222133;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #100c54;
+}
+.navbar-default .navbar-text {
+  color: #222133;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #222133;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #100c54;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu {
+  background-color: #7ea6aa;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+  color: #222133;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #100c54;
+  background-color: #4d9d82;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
+  background-color: #4d9d82;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+  color: #100c54;
+  background-color: #4d9d82;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #100c54;
+  background-color: #4d9d82;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #100c54;
+  background-color: #4d9d82;
+}
+.navbar-default .navbar-toggle {
+  border-color: #4d9d82;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #4d9d82;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #222133;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #222133;
+}
+.navbar-default .navbar-link {
+  color: #222133;
+}
+.navbar-default .navbar-link:hover {
+  color: #100c54;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #222133;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #100c54;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #100c54;
+    background-color: #4d9d82;
+  }
+}
+Find TWBSColor useful ? Share it !
+
+A work by Samuel Marchal
+Suggestions, comments, typo ?
+
+Licence MIT 
+
+Buy me a coffee ! or  Buy me a tea ! 
+
+All brand icons are trademarks of their respective owners.
+The use of these trademarks does not indicate endorsement of the trademark holder by TWBSColor, nor vice versa.
