@@ -1,6 +1,6 @@
 @extends('layout/main')
 
-@section('title', " - Contato")
+@section('title', "Contato")
 
 @section('body')
 

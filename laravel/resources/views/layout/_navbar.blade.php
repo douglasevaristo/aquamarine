@@ -8,10 +8,10 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                {!! utils::criar_navbar_item('Home', 'home') !!}
-                {!! utils::criar_navbar_item('Postagens', 'post.index') !!}
-                {!! utils::criar_navbar_item('Sobre', 'sobre') !!}
-                {!! utils::criar_navbar_item('Contato', 'contato') !!}
+                {!! utils::criar_navbar_item('Home', route('home')) !!}
+                {!! utils::criar_navbar_item('Postagens', route('post.index')) !!}
+                {!! utils::criar_navbar_item('Sobre', route('sobre')) !!}
+                {!! utils::criar_navbar_item('Contato', route('contato')) !!}
             </ul>
         </div>
     </div>

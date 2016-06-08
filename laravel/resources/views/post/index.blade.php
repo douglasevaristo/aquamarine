@@ -1,9 +1,8 @@
-@extends('layout/main')
+@extends('post/layout')
 
-@section('title', " - Posts")
+@section('title', "Posts")
 
 @section('styles')
-
     <style type="text/css">
         .qypgj-btn-add {
             background-color: #AD9EBF;
@@ -29,14 +28,16 @@
             float: right;
         }
     </style>
-
 @endsection
 
-@section('body')
+@push('breadcrub')
+    {!! utils::criar_breadcrumb_item('Novo', route('post.create')) !!}
+@endpush
 
-    <div class="container-fluid">
+@section('content')
+    <div class="content">
         <h1><span>Posts</span>
-        <a type="button" class="btn btn-default btn-lg qypgj-btn-add">Novo</a>
+        <a type="button" href="{{ route('post.create') }}" class="btn btn-default btn-lg qypgj-btn-add">Novo</a>
         </h1>
 
         <hr>
@@ -49,7 +50,7 @@
                             <blockquote>
                                 <p class="lead">
                                     {{ $post->titulo }}
-                                    <a href="{{ route('post.show', $post->id) }}" type="button" class="btn btn-default qypgj-btn-editar">Visualizar</a>
+                                    <a href="{{ route('post.show', $post->id) }}" type="button" class="btn btn-default qypgj-btn-editar">Continue lendo...</a>
                                 </p>
                                 <p>{{ $post->get_texto('255', '....') }}</p>
                                 <footer>criado em {{ $post->get_data_criado() }}</footer>
@@ -60,6 +61,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Post;
+use Validator;
 
 class PostCtrl extends Controller
 {
@@ -26,7 +27,7 @@ class PostCtrl extends Controller
      */
     public function create()
     {
-        //
+        return view('post/create');
     }
 
     /**
@@ -37,7 +38,21 @@ class PostCtrl extends Controller
      */
     public function store(Request $request)
     {
-        //
+            ///TEST
+        $att = $request->all();
+        $rules = [
+            'titulo' => 'required|max:255',
+            'texto' => 'required|alpha_dash',
+            'senha' => 'required|between:10,40',
+            'conf_senha' => 'required|same:senha'
+        ];
+        $validator = Validator::make($att, $rules);
+
+        $d = $validator->passes();
+        dd($validator);
+        $d = $validator->failed();
+        // $d = $validator->extractValuesForWildcards($att, 'senha');
+        dd($d);
     }
 
     /**

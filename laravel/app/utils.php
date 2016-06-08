@@ -63,11 +63,21 @@ class utils
         return $return;
     }
 
-    static public function criar_navbar_item($nome, $rota)
+    static public function criar_navbar_item($nome, $url)
     {
-        $url = route($rota);
         $estaActivo = url()->current() == $url ? "class=\"active\"" : "";
         return "<li $estaActivo><a href=\"$url\">$nome</a></li>";
+    }
+
+    static public function criar_breadcrumb_item($nome, $url)
+    {
+        if ( url()->current() == $url ) {
+            $estaActivo = "class=\"active\"";
+        } else {
+            $estaActivo = '';
+            $nome = "<a href=\"$url\">$nome</a>";
+        }
+        return "<li $estaActivo>$nome</li>";
     }
 
     static public function data_str($data = null, $formato = 'jmY')

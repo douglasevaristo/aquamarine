@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-       @include('layout/_head')
-       @yield('styles')
+        @include('layout/_head')
+        @yield('styles')
     </head>
     <body>
         @include('layout/_navbar')
