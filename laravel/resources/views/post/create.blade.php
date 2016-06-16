@@ -18,6 +18,11 @@
                     <input type="text" name="titulo" class="form-control" id="input_titulo" required="" />
                 </div>
             
+                <div class="form-group" title="Slug é uma URL legivel">
+                    <label for="input_slug" class="required">Slug</label>
+                    <input type="text" name="slug" class="form-control" id="input_slug" required="" />
+                </div>
+            
                 <div class="form-group">
                     <label for="textarea_texto" class="required">Texto</label>
                     <textarea name="texto" id="textarea_texto" class="form-control" rows="4" required=""></textarea>

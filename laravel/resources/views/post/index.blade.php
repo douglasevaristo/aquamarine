@@ -36,8 +36,9 @@
 
 @section('content')
     <div class="content">
-        <h1><span>Posts</span>
-        <a type="button" href="{{ route('post.create') }}" class="btn btn-default btn-lg qypgj-btn-add">Novo</a>
+        <h1>
+            <span>Posts</span>
+            <a type="button" href="{{ route('post.create') }}" class="btn btn-default btn-lg qypgj-btn-add">Novo</a>
         </h1>
 
         <hr>

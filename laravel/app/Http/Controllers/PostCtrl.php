@@ -42,15 +42,16 @@ class PostCtrl extends Controller
         $att = $request->all();
         $rules = [
             'titulo' => 'required|max:255',
-            'texto' => 'required|alpha_dash',
+            'texto' => 'required|min:10',
             'senha' => 'required|between:10,40',
-            'conf_senha' => 'required|same:senha'
+            'conf_senha' => 'required|same:senha',
+            'slug' => 'required|max:99|alpha_dash'
         ];
         $validator = Validator::make($att, $rules);
 
-        $d = $validator->passes();
+        $validator->passes();
         dd($validator);
-        $d = $validator->failed();
+        $validator->failed();
         // $d = $validator->extractValuesForWildcards($att, 'senha');
         dd($d);
     }

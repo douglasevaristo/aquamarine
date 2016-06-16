@@ -15,6 +15,13 @@ class Post extends Model
         if (count(preg_grep('/^(.*\D.*){3,}$/iU', [$senha])) == 0) {
             return false;
         }
+        
+        for ($i = 1; $i < strlen($senha); $i++) {
+            $anterior = $senha[$i-1];
+            if ($senha[$i] == ++$anterior) {
+                return false;
+            }
+        }
 
         return count(preg_grep('/^(.*\d.*){3,}$/iU', [$senha])) > 0;
     }

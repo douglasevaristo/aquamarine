@@ -11,16 +11,10 @@
 |
 */
 
-Route::get('/', ['as' => 'home', function () {
-    return view('home');
-}]);
+Route::get('/', ['as' => 'home', 'uses' => 'PaginasCtrl@home']);
 
-Route::get('/sobre', ['as' => 'sobre', function () {
-    return view('sobre');
-}]);
+Route::get('/sobre', ['as' => 'sobre', 'uses' => 'PaginasCtrl@sobre']);
 
-Route::get('/contato', ['as' => 'contato', function () {
-    return view('contato');
-}]);
+Route::get('/contato', ['as' => 'contato', 'uses' => 'PaginasCtrl@contato']);
 
 Route::resource('post', 'PostCtrl');
