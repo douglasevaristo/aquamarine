@@ -51,7 +51,7 @@
                             <blockquote>
                                 <p class="lead">
                                     {{ $post->titulo }}
-                                    <a href="{{ route('post.show', $post->id) }}" type="button" class="btn btn-default qypgj-btn-editar">Continue lendo...</a>
+                                    <a href="{{ route('post.show', $post->slug) }}" type="button" class="btn btn-default qypgj-btn-editar">Continue lendo...</a>
                                 </p>
                                 <p>{{ $post->get_texto('255', '....') }}</p>
                                 <footer>criado em {{ $post->get_data_criado() }}</footer>

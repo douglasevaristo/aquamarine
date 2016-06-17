@@ -4,7 +4,25 @@ namespace App;
 
 class utils
 {
-    static public function nome_mes($num_mes) {
+    static private $COUNTER = null;
+    
+    static public function gerar_int_unique()
+    {
+        if (is_null(self::$COUNTER)) {
+            function n() {
+                $i=0;
+                return function() use (&$i){
+                    return ++$i;
+                };
+            }
+            self::$COUNTER = n();
+        }
+        $pivo = self::$COUNTER;
+        return $pivo();
+    }
+    
+    static public function nome_mes($num_mes)
+    {
         $num_mes = (int) $num_mes;
         switch ($num_mes) {
             case 1:
@@ -105,5 +123,12 @@ class utils
         }
 
         return implode($glue, $strs);
+    }
+    
+    static public function valueIfOld($input)
+    {
+        if (old($input)) {
+            return 'value="'.old($input).'"';
+        }
     }
 }
