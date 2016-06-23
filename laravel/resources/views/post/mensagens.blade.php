@@ -3,7 +3,7 @@
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <ul>
             @foreach (session('problema') as $error)
-            <li>{{ $error }}</li>
+                <li>{{ $error }}</li>
             @endforeach
         </ul>
     </div>
@@ -14,7 +14,7 @@
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <ul>
             @foreach (session('sucesso') as $sucesso)
-            <li>{{ $sucesso }}</li>
+                <li>{{ $sucesso }}</li>
             @endforeach
         </ul>
     </div>

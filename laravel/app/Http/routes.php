@@ -18,3 +18,5 @@ Route::get('/sobre', ['as' => 'sobre', 'uses' => 'PaginasCtrl@sobre']);
 Route::get('/contato', ['as' => 'contato', 'uses' => 'PaginasCtrl@contato']);
 
 Route::resource('post', 'PostCtrl');
+
+Route::post('post/{post}/edit', ['as' => 'post.auth.edit', 'uses' => 'PostCtrl@auth_edit']);

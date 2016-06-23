@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Hash;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -21,15 +22,12 @@ class Post extends Model
 
     static public function valida_senha($senha)
     {
-        if ( strlen($senha) < 7 || 40 < strlen($senha) ) {
+        $len = strlen($senha);
+        if ( $len < 7 || 40 < $len ) {
             return false;
         }
 
-        if (count(preg_grep('/^(.*\D.*){3,}$/iU', [$senha])) == 0) {
-            return false;
-        }
-        
-        for ($i = 2; $i < strlen($senha); $i += 2) {
+        for ($i = 2; $i < $len; $i ++) {
             $anterior = $senha[$i-2];
             if  (
                     ($anterior == $senha[$i-1] && $anterior == $senha[$i])
@@ -40,7 +38,15 @@ class Post extends Model
             }
         }
 
-        return count(preg_grep('/^(.*\d.*){3,}$/iU', [$senha])) > 0;
+        if (count(preg_grep('/^(.*[a-zA-Z].*){3,}$/iU', [$senha])) == 0) {
+            return false;
+        }
+
+        if (count(preg_grep('/^(.*\d.*){3,}$/iU', [$senha])) == 0) {
+            return false;
+        }
+        
+        return count(preg_grep('/^.*\W.*$/iU', [$senha])) > 0;
     }
     
     static public function validar_campos($inputs, $edit_id = null) {
@@ -76,7 +82,7 @@ class Post extends Model
     public function set_senha($senha)
     {
         if ($this->valida_senha($senha)) {
-            $this->senha = bcrypt($senha);
+            $this->senha = Hash::make($senha);
             return true;
         } else {
             return false;
@@ -96,5 +102,10 @@ class Post extends Model
     public function get_data_criado($format = 'j \d\e m \d\e Y')
     {
         return utils::data_str($this->created_at, $format);
+    }
+
+    public function verifica_senha($senha)
+    {
+        return Hash::check($senha, $this->senha);
     }
 }

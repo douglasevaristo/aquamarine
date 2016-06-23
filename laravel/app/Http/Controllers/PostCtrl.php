@@ -10,19 +10,22 @@ class PostCtrl extends Controller
 {
     private $msg_falha_request = null;
     private $msg_criado_sucesso = null;
+    private $TEMPO_LOGIN = null;
 
 
     
 
     public function __construct()
     {
+        $this->TEMPO_LOGIN = 5 * 60; /* em segundos */
         $this->msg_falha_request = [];
+        $this->msg_falha_auth_edit = [];
         $this->msg_criado_sucesso = 'Novo post criado com sucesso!';
     }
     
     
     
-    public function request_nao_valido(Request $request, $id = null)
+    private function request_nao_valido(Request $request, $id = null)
     {
         $att = $request->all();
         
@@ -32,10 +35,39 @@ class PostCtrl extends Controller
         }
         
         if ( ! Post::valida_senha($request->get('senha'))) {
-            $this->msg_falha_request[] = "Senha muito vuneravel! Não utilize sequencias de letras(abc) ou de números(123).";
+            $this->msg_falha_request[] = "Senha muito vuneravel! Não utilize sequencias de letras(abc) ou de números(123). Utilize pelo menus 1 caracter especial(.!@-_;...)";
         }
         
         return count($this->msg_falha_request) != 0;
+    }
+
+    private function validar_auth_edit($id)
+    {
+        $editableSession = session('editable_valido');
+        if ($editableSession) {
+            if ($editableSession['id'] != $id) {
+                $this->msg_falha_auth_edit[] = 'Senha incorreta. eu vi o que você fez, estou observando ( ͠° ͟ʖ ͡°)';
+                return false;
+            }
+
+            if ($editableSession['quando'] > time() + $this->TEMPO_LOGIN) {
+                $this->msg_falha_auth_edit[] = 'Tempo expirou! Entre com a senha novamente.';
+                return false;
+            }
+
+            $post = Post::find($id);
+
+            if (is_null($post)) {
+                $this->msg_falha_auth_edit[] = 'Post invalido.';
+                return false;
+            }
+
+            return $post;
+
+        } else {
+            $this->msg_falha_auth_edit[] = 'Senha incorreta.';
+            return false;
+        }
     }
     
     
@@ -79,7 +111,7 @@ class PostCtrl extends Controller
         $novoPost->save();
         
         return redirect(null, 201)
-                ->route('post.show', ['post' => $novoPost->slug])
+                ->route('post.show', $novoPost->slug)
                 ->with('sucesso', [$this->msg_criado_sucesso]);
     }
 
@@ -100,11 +132,48 @@ class PostCtrl extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function auth_edit($id, Request $request)
+    {
+        $post = Post::find($id);
+        if (is_null($post)) {
+            return back()->with('problema', ['Post invalido!']);
+        }
+
+        if ( ! $post->verifica_senha($request->get('senha')) ) {
+            return back()->with('problema', ['Senha esta incorreta.']);
+        }
+
+        session()->flash('editable_valido', [
+            'id' => $id,
+            'quando' => time()
+        ]);
+
+        return redirect(null, 200)
+                ->route('post.edit', $id);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $valido = $this->validar_auth_edit($id);
+
+        //reafirmar o session()
+
+        if ( $valido ) {
+            dd(session());
+            return view('post/update')->with('post', $valido);
+        } else {
+            return back()
+                ->with('problema', $this->msg_falha_auth_edit);
+        }
     }
 
     /**

@@ -44,10 +44,10 @@
         <hr>
 
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-18 col-md-offset-3">
                 @foreach($allPosts as $post)
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-24">
                             <blockquote>
                                 <p class="lead">
                                     {{ $post->titulo }}

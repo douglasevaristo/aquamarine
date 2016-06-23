@@ -2,6 +2,7 @@
 <html lang="pt-br">
     <head>
         @include('layout/_head')
+
         @yield('styles')
     </head>
     <body>
@@ -21,6 +22,7 @@
         </footer>
 
         @include('layout/_scripts')
+
         @yield('scripts')
     </body>
 </html>

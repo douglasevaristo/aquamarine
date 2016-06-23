@@ -6,9 +6,11 @@
     {!! utils::criar_breadcrumb_item('Novo', route('post.create')) !!}
 @endpush
 
+
 @section('content')
+    
     <div class="row">
-        <div class="col-md-offset-3 col-md-6">
+        <div class="col-md-offset-5 col-md-14">
             
             @include('post/mensagens')
 
@@ -32,14 +34,14 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
                             <label for="input_senha" class="required">Senha</label>
                             <input type="password"  name="senha" class="form-control" id="input_senha" required="" />
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
                             <label for="input_conf_senha" class="required">Confirme a senha</label>
                             <input type="password" name="conf_senha" class="form-control" id="input_conf_senha" required="" />
